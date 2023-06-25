@@ -131,7 +131,7 @@ const EditStudent = () => {
         <div>
           <form id="form-student" onSubmit={handleSubmit}>
             <Box>
-              <Heading size="lg" textAlign="center" as="h2" color="#213555" p="20px">Edit Student</Heading>
+              <Heading size="lg" textAlign="center" as="h2" color="#213555" p="20px">EDIT STUDENT</Heading>
             </Box>
             {loading ? (
               <p>Loading ...</p>

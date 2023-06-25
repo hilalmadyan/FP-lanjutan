@@ -1,5 +1,6 @@
 import React from "react";
-import { Heading, Input, Button, Select, Box } from "@chakra-ui/react";
+import { Heading, Input, Button, Select, Box, Menu, MenuDivider, MenuButton, MenuList, MenuItem, Spacer } from "@chakra-ui/react";
+import {ChevronDownIcon} from "@chakra-ui/icons"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -123,7 +124,7 @@ const AddStudent = () => {
               <div>
                 <img
                   src={formData.profilePicture}
-                  alt="Profile"
+                  alt="Insert Profile Picture"
                   data-testid="previewPicture"
                 />
                 <label>
@@ -136,16 +137,38 @@ const AddStudent = () => {
                     data-testid="name"
                   />
                 </label>
+                <Menu>
+                  <MenuButton
+                    px={4}
+                    py={2}
+                    transition="all 0.2s"
+                    borderRadius="md"
+                    borderWidth="1px"
+                    _hover={{ bg: "gray.400" }}
+                    _expanded={{ bg: "blue.400" }}
+                    _focus={{ boxShadow: "outline" }}
+                  >
+                    File <ChevronDownIcon />
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>New File</MenuItem>
+                    <MenuItem>New Window</MenuItem>
+                    <MenuDivider />
+                    <MenuItem>Open...</MenuItem>
+                    <MenuItem>Save File</MenuItem>
+                  </MenuList>
+                </Menu>
                 <label>
-                  Profile Picture:
-                  <Input
-                    type="text"
+                  Profile Picture
+                  {/* <input
+                    // type="text"
                     name="profilePicture"
                     value={formData.profilePicture}
                     onChange={handleProfilePictureChange}
                     data-testid="profilePicture"
-                  />
+                  /> */}
                 </label>
+                <Spacer/>
                 <label>
                   Address:
                   <Input
@@ -220,8 +243,14 @@ const AddStudent = () => {
                 <option value="Fisika">Fisika</option>
                 <option value="Informatika">Informatika</option>
               </Select>
-              <Box textAlign="center" p="50px">
-                <Button bgColor="#4F709C" color="white" type="submit" id="add-btn" data-testid="add-btn">
+              <Box textAlign="center" p="71px">
+                <Button
+                  bgColor="#4F709C"
+                  color="white"
+                  type="submit"
+                  id="add-btn"
+                  data-testid="add-btn"
+                >
                   Add Student
                 </Button>
               </Box>
